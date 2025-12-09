@@ -1,0 +1,479 @@
+/* ================== RESET ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #1e2330;
+  line-height: 1.6;
+}
+
+/* ================== HEADER / TOP ================== */
+.top {
+  padding: 30px 8% 80px;
+  /* bandeau inspiré du jeu : bleu/violet qui descend vers un fond clair */
+  background: linear-gradient(180deg, #202873, #3c3fa3, #f2f6ff);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo : blanc + accent doré nourriture */
+.logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.logo span {
+  color: #ffd76a; /* doré riz / nourriture */
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #e4ecff; /* clair comme la barre du jeu */
+}
+
+.nav-links a:hover {
+  color: #ffd76a; /* jaune boost */
+}
+
+/* Bouton A PROPOS : style outline doré */
+.cta.about {
+  padding: 9px 20px;
+  border: 2px solid #ffd76a;
+  color: #ffd76a;
+  border-radius: 30px;
+  background: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cta.about:hover {
+  background: #ffd76a;
+  color: #22223a;
+}
+
+/* ================== HERO (texte + affiche) ================== */
+.top-content {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Titre : texte clair sur fond bleu/violet */
+.top-text h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fdfbff;
+}
+
+.top-text h1 span {
+  color: #ffd76a; /* même doré que le logo */
+}
+
+.top-text p {
+  margin-top: 14px;
+  max-width: 460px;
+  color: #dde3ff; /* texte description plus doux */
+}
+
+/* Bouton jouer : gros CTA orange/jaune très visible */
+.cta.play {
+  margin-top: 20px;
+  padding: 10px 22px;
+  background: linear-gradient(
+    90deg,
+    #ffb347,
+    #ff6b6b
+  ); /* orange -> rouge snack */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  animation: flashStrong 0.8s infinite;
+  cursor: pointer;
+}
+
+.cta.play:hover {
+  background: linear-gradient(90deg, #ff9a22, #ff4b5c);
+}
+
+/* Flash fort du bouton */
+@keyframes flashStrong {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 4px #ffb347;
+  }
+  25% {
+    transform: scale(1.12);
+    box-shadow: 0 0 22px #ffe18a, 0 0 40px #ff6b6b;
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 10px #ff9ecf;
+  }
+  75% {
+    transform: scale(1.16);
+    box-shadow: 0 0 28px #ffe18a, 0 0 55px #ff6b6b;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px #ffb347;
+  }
+}
+
+/* Mot "chef" cartoon en boucle */
+.chef-anim {
+  display: inline-block;
+  position: relative;
+  animation: chefCartoon 1.6s ease-out infinite;
+  opacity: 1;
+}
+
+@keyframes chefCartoon {
+  0% {
+    transform: translateY(-180px) scale(1.2, 0.7) rotate(-10deg);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(30px) scale(0.8, 1.3) rotate(2deg);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(-15px) scale(1.3, 0.8);
+  }
+  60% {
+    transform: translateY(8px) scale(0.9, 1.1);
+  }
+  75% {
+    transform: translateY(-5px) scale(1.08, 0.92);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================== POSTER (affiche du jeu) ================== */
+.top-visuel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-poster {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  background: #151a3d;
+}
+
+/* images superposées */
+.top-poster img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.top-poster-1 {
+  opacity: 1; /* visible au début */
+}
+
+/* ================== SECTIONS GLOBAL ================== */
+.section {
+  padding: 90px 8%;
+  background: #f8f7ff; /* léger violet clair */
+}
+
+.section-colored {
+  padding: 90px 8%;
+  background: #f2f6ff; /* bleu clair */
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: #22223a;
+}
+
+.section h2 span {
+  color: #ffd76a; /* accent doré */
+}
+
+.section-intro {
+  color: #5f6785;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+/* ================== STEPS (Comment jouer) ================== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.step {
+  background: #192149; /* carte foncée comme les panneaux du jeu */
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #2f3a7d;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  color: #f2f4ff;
+
+  position: relative;
+
+  /* apparition progressive */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: stepFade 0.7s ease-out forwards;
+}
+
+/* délai différent pour chaque carte */
+.steps .step:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.steps .step:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.steps .step:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* gros chiffre décoratif dans chaque carte */
+.step-number {
+  position: absolute;
+  font-size: 4rem;
+  right: 10px;
+  top: 0px;
+  color: #ffd76a;
+  opacity: 0.15;
+}
+
+/* animation d'apparition du bloc */
+@keyframes stepFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================== GALERIE ================== */
+.gallery {
+  display: grid;
+  gap: 20px;
+}
+
+.gallery-main {
+  position: relative;
+  height: 260px;
+}
+
+.gallery-image {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.gallery-image.active {
+  opacity: 1;
+}
+
+.fake-screenshot {
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  font-weight: 700;
+  color: #0b0f16;
+}
+
+/* dégradés inspirés du jeu : bleu/violet + doré food */
+.gradient-1 {
+  background: radial-gradient(circle at top, #ffd76a, #3240a8);
+}
+.gradient-2 {
+  background: radial-gradient(circle at top, #ffb347, #3a2b7f);
+}
+.gradient-3 {
+  background: radial-gradient(circle at top, #7fd7ff, #29378a);
+}
+
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.thumb {
+  padding: 8px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 1px solid #ffd76a;
+  background: white;
+  font-weight: bold;
+  color: #293158;
+}
+
+.thumb.active {
+  background: #ffd76a;
+  color: #22223a;
+}
+
+/* ================== SECTION EQUIPE ================== */
+
+.team-section {
+  background: #141726; /* fond sombre type interface du jeu */
+  color: #f5f6ff;
+}
+
+.team-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.team-header .team-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9aa1c7;
+  margin-bottom: 6px;
+}
+
+.team-subtitle {
+  margin-top: 30px;
+  margin-bottom: 18px;
+}
+
+.team-subtitle .team-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9aa1c7;
+  margin-bottom: 4px;
+}
+
+.team-subtitle h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Zone des cartes membres */
+.team-carousel {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+/* Carte profil : base (en arrière-plan) */
+.member-card {
+  width: 180px;
+  background: #f9fafc;
+  border-radius: 18px;
+  padding: 16px 12px 18px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(10px) scale(0.9);
+  opacity: 0.6;
+  transition: 0.4s;
+}
+
+/* Profil en avant plan */
+.member-card.active {
+  transform: translateY(-10px) scale(1.08);
+  opacity: 1;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Image ronde */
+.member-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
+  border: 3px solid #ffd76a; /* doré comme le reste du site */
+}
+
+/* Texte du membre */
+.member-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #22223a;
+}
+
+.member-role {
+  font-size: 0.85rem;
+  color: #5f6785;
+}
+
+/* Sur mobile : on met les cartes en colonne */
+@media (max-width: 700px) {
+  .team-carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ================== FOOTER ================== */
+.footer {
+  background: #22254a;
+  color: #e4ecff;
+  padding: 30px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-note {
+  opacity: 0.7;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 900px) {
+  .top-content {
+    grid-template-columns: 1fr;
+  }
+  .nav-links {
+    display: none;
+  }
+}
