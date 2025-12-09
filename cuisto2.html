@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Site vitrine du CUISTO</title>
+
+  <!-- Cette ligne permet au site de bien s'adapter sur téléphone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="cuisto.css">
+</head>
+<body>
+
+  <!-- ======================= HEADER + NAVBAR ======================= -->
+  <header class="top">
+    <!-- Barre de navigation en haut -->
+    <nav class="navbar">
+      <!-- Logo / nom du jeu -->
+      <div class="logo">
+        Idle <span>Food</span> Frenzy
+      </div>
+
+      <!-- Liens pour naviguer dans la page -->
+      <ul class="nav-links">
+        <li><a href="#game">Le jeu</a></li>
+        <li><a href="#how">Comment jouer</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+      </ul>
+
+      <!-- Bouton à droite dans la navbar -->
+      <button class="cta about">
+        A PROPOS
+      </button>
+    </nav>
+
+    <!-- Contenu principal du header (gauche = texte, droite = carte du jeu) -->
+    <div class="top-content">
+
+      <!-- Colonne gauche : texte d'accroche -->
+      <div class="top-text">
+        <h1>
+          Deviens le <span class="chef-anim">chef</span> ultime<br>
+          du jeu idle le plus <span>gourmand</span> !
+        </h1>
+
+        <p>
+          Clique pour cuisiner, automatise ta cuisine, débloque des recettes
+          folles et regarde ton empire gastronomique grandir pendant que tu te reposes.
+        </p>
+
+        <!-- Boutons principaux -->
+        <div class="hero-buttons">
+          <button class="cta play">Jouer maintenant</button>
+        </div>
+       
+      </div>
+
+     
+     
+      <div class="top-visuel">
+        <div class="top-poster">
+          <img  class="top-poster-1 " src="images/images 1.jpg" alt="Affiche principale du jeu Idle Food Frenzy">
+          <img   class="top-poster-2" src="images/images 2.jpg" alt="Deuxième affiche du jeu Idle Food Frenzy">
+        </div>
+      </div>
+    </div>
+  </header>
+
+ 
+  <main>
+    <!-- ======================= SECTION : COMMENT JOUER ======================= -->
+    <section id="how" class="section">
+      <div class="section-inner">
+        <h2>Comment ça marche&nbsp;?</h2>
+
+        <p class="section-intro">
+          Le gameplay est simple à comprendre, mais ultra addictif. Idéal pour un vrai idle game.
+        </p>
+
+        <!-- Étapes simples 1 / 2 / 3 -->
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Cliquer pour démarrer</h3>
+            <p>
+              Tu cliques sur le plat principal pour cuisiner et gagner tes premières pièces.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Acheter des améliorations</h3>
+            <p>
+              Avec tes pièces, tu débloques des chefs auto, des cuisines spéciales
+              et des recettes premium.
+            </p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Regarder ton empire tourner</h3>
+            <p>
+              Le jeu continue de produire même quand tu es offline. Reviens pour ramasser tes gains.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= SECTION : GALERIE ======================= -->
+    <section id="gallery" class="section section-colored">
+      <div class="section-inner">
+        <h2>Un univers visuel <span>appétissant</span></h2>
+
+        <p class="section-intro">
+          Voici une galerie pour présenter les différents écrans du jeu.
+          Plus tard, tu pourras remplacer ces blocs par de vraies captures d'écran.
+        </p>
+
+        <div class="gallery">
+          <!-- Zone principale qui affiche une "image" à la fois -->
+          <div class="gallery-main">
+            <!-- Slide 1 -->
+            <div class="gallery-image active" data-index="0">
+              <div class="fake-screenshot gradient-1">
+                <span>Écran d'accueil</span>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="gallery-image" data-index="1">
+              <div class="fake-screenshot gradient-2">
+                <span>Vue de la cuisine</span>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="gallery-image" data-index="2">
+              <div class="fake-screenshot gradient-3">
+                <span>Arbre d'améliorations</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Petits boutons en-dessous pour changer de slide -->
+          <div class="gallery-thumbs">
+            <button class="thumb active" data-index="0">Accueil</button>
+            <button class="thumb" data-index="1">Cuisine</button>
+            <button class="thumb" data-index="2">Upgrades</button>
+          </div>
+
+          <!-- Boutons précédent / suivant -->
+          <div class="gallery-controls">
+            <button id="prev-slide" class="btn-ghost">◀ Précédent</button>
+            <button id="next-slide" class="btn-primary">Suivant ▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+        <!-- ======================= SECTION : EQUIPE ======================= -->
+    <section id="team" class="section team-section">
+      <div class="section-inner">
+
+        <!-- Texte de présentation -->
+        <div class="team-header">
+          <p class="team-kicker">ÉQUIPE DU PROJET</p>
+          <h2>Les esprits derrière<br>l’Idle Game du Cuisto</h2>
+          <p class="section-intro">
+            Nous sommes quatre passionnés de game design et d’interface,
+            réunis autour d’une idée simple&nbsp;: transformer les clics de grains de riz
+            en véritables plats cuisinés pour construire votre empire.
+          </p>
+        </div>
+
+        <div class="team-subtitle">
+          <p class="team-kicker">L’ÉQUIPE</p>
+          <h3>Quatre profils, une vision commune</h3>
+        </div>
+
+        <!-- Profils dynamiques -->
+        <div class="team-carousel">
+          <article class="member-card active">
+            <img src="images/osias.jpg" alt="Osias" class="member-avatar">
+            <h4 class="member-name">Osias</h4>
+            <p class="member-role">UI UX Designer</p>
+          </article>
+
+          <article class="member-card">
+            <img src="images/bakary.jpg" alt="Bakary" class="member-avatar">
+            <h4 class="member-name">Bakary</h4>
+            <p class="member-role">UI UX Designer</p>
+          </article>
+
+          <article class="member-card">
+            <img src="images/donna.jpg" alt="Donna" class="member-avatar">
+            <h4 class="member-name">Donna</h4>
+            <p class="member-role">UI UX Designer</p>
+          </article>
+
+          <article class="member-card">
+            <img src="images/dylan.jpg" alt="Dylan" class="member-avatar">
+            <h4 class="member-name">Dylan</h4>
+            <p class="member-role">UI UX Designer</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>
+        © 2025 Idle Food Frenzy — Site vitrine de démonstration pour un idle game sur la nourriture.
+      </p>
+      <p class="footer-note">
+        Ici tu pourras ajouter plus tard des liens vers ton jeu (Steam, itch.io, Play Store),
+        tes réseaux sociaux, ton Discord, etc.
+      </p>
+    </div>
+  </footer>
+
+ 
+  <script src="cuisto.js"></script> 
+</body>
+</html>
