@@ -96,9 +96,13 @@ body {
   color: #dde3ff; /* texte description plus doux */
 }
 
+/* conteneur du bouton "Jouer maintenant" */
+.play {
+  margin-top: 40px; /* espace pour descendre le bouton */
+}
+
 /* Bouton jouer : gros CTA orange/jaune très visible */
 .cta.play {
-  margin-top: 20px;
   padding: 10px 22px;
   background: linear-gradient(
     90deg,
@@ -263,11 +267,9 @@ body {
 .steps .step:nth-child(1) {
   animation-delay: 0.1s;
 }
-
 .steps .step:nth-child(2) {
   animation-delay: 0.35s;
 }
-
 .steps .step:nth-child(3) {
   animation-delay: 0.6s;
 }
@@ -336,37 +338,23 @@ body {
   background: radial-gradient(circle at top, #7fd7ff, #29378a);
 }
 
-.gallery-thumbs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.thumb {
-  padding: 8px 14px;
-  border-radius: 30px;
-  cursor: pointer;
-  border: 1px solid #ffd76a;
-  background: white;
-  font-weight: bold;
-  color: #293158;
-}
-
-.thumb.active {
-  background: #ffd76a;
-  color: #22223a;
-}
-
+/* ================== SECTION EQUIPE ================== */
 /* ================== SECTION EQUIPE ================== */
 
 .team-section {
-  background: #141726; /* fond sombre type interface du jeu */
-  color: #f5f6ff;
+  background: linear-gradient(180deg, #f2f6ff, #f8f7ff);
+  /* comme .section-colored, léger, lumineux */
+  color: #22223a;
+}
+
+.team-section .section-intro {
+  color: #5f6785; /* même style que les autres sections */
 }
 
 .team-header h2 {
   font-size: 2.2rem;
   margin-bottom: 12px;
+  color: #22223a;
 }
 
 .team-header .team-kicker {
@@ -393,6 +381,7 @@ body {
 .team-subtitle h3 {
   font-size: 1.1rem;
   font-weight: 600;
+  color: #22223a;
 }
 
 /* Zone des cartes membres */
@@ -404,24 +393,26 @@ body {
   justify-content: center;
 }
 
-/* Carte profil : base (en arrière-plan) */
+/* Carte profil : base */
 .member-card {
   width: 180px;
-  background: #f9fafc;
+  background: #ffffff;
   border-radius: 18px;
   padding: 16px 12px 18px;
   text-align: center;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e1e5f5;
   transform: translateY(10px) scale(0.9);
-  opacity: 0.6;
+  opacity: 0.7;
   transition: 0.4s;
 }
 
 /* Profil en avant plan */
 .member-card.active {
-  transform: translateY(-10px) scale(1.08);
+  transform: translateY(-10px) scale(1.05);
   opacity: 1;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  border-color: #ffd76a; /* petit accent doré */
   z-index: 2;
 }
 
@@ -447,14 +438,6 @@ body {
   color: #5f6785;
 }
 
-/* Sur mobile : on met les cartes en colonne */
-@media (max-width: 700px) {
-  .team-carousel {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 /* ================== FOOTER ================== */
 .footer {
   background: #22254a;
@@ -464,16 +447,11 @@ body {
   margin-top: 40px;
 }
 
-.footer-note {
-  opacity: 0.7;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* ================== RESPONSIVE ================== */
-@media (max-width: 900px) {
-  .top-content {
-    grid-template-columns: 1fr;
-  }
-  .nav-links {
-    display: none;
-  }
+.footer-note {
+  opacity: 0.7;
 }

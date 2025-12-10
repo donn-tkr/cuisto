@@ -78,7 +78,7 @@ if (poster1 && poster2 && posterContainer) {
 // ======================================================
 // 2. GALERIE D'IMAGES (section #gallery)
 //    - Boutons Accueil / Cuisine / Upgrades
-//    - Boutons Précédent / Suivant
+//    - PLUS de boutons Précédent / Suivant
 // ======================================================
 
 // On récupère tous les "slides" (les gros blocs de couleur)
@@ -87,16 +87,16 @@ var slides = document.querySelectorAll(".gallery-image");
 // On récupère les petits boutons en dessous (Accueil / Cuisine / Upgrades)
 var thumbs = document.querySelectorAll(".thumb");
 
-// On récupère les boutons Précédent / Suivant (s'ils existent)
-var prevButton = document.getElementById("prev-slide");
-var nextButton = document.getElementById("next-slide");
-
 // Index de la slide actuellement visible
 var currentSlideIndex = 0;
 
 // Fonction qui affiche un slide précis
 function showSlide(index) {
   var i;
+
+  if (slides.length === 0) {
+    return;
+  }
 
   // Si l'index est trop petit, on revient à la fin
   if (index < 0) {
@@ -137,24 +137,9 @@ if (slides.length > 0) {
   // Au chargement, on s'assure d'afficher la première slide
   showSlide(0);
 
-  // Gestion du bouton "Précédent"
-  if (prevButton) {
-    prevButton.addEventListener("click", function () {
-      showSlide(currentSlideIndex - 1);
-    });
-  }
-
-  // Gestion du bouton "Suivant"
-  if (nextButton) {
-    nextButton.addEventListener("click", function () {
-      showSlide(currentSlideIndex + 1);
-    });
-  }
-
-  // Gestion des petits boutons (thumbs)
+  // Gestion des petits boutons (thumbs) uniquement
   var j;
   for (j = 0; j < thumbs.length; j++) {
-    // On crée une fonction qui garde la bonne valeur de j
     (function (index) {
       thumbs[index].addEventListener("click", function () {
         showSlide(index);
