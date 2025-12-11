@@ -62,7 +62,7 @@ function nextCard() {
 }
 
 function startTeam() {
-  teamTimer = setInterval(nextCard, 2500);
+  teamTimer = setInterval(nextCard, 1000);
 }
 
 function stopTeam() {
