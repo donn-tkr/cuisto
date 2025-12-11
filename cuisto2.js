@@ -1,119 +1,79 @@
-// ======================
-// 1. Slider des affiches
-// ======================
+const poster1 = document.querySelector(".top-poster-1");
+const poster2 = document.querySelector(".top-poster-2");
+const posterContainer = document.querySelector(".top-poster");
 
-var poster1 = document.querySelector(".top-poster-1");
-var poster2 = document.querySelector(".top-poster-2");
-var posterContainer = document.querySelector(".top-poster");
-var currentPoster = 1;
-var posterIntervalId = null;
+let current = 1;
+let timer = null;
 
 function showPoster1() {
-  if (poster1 && poster2) {
-    poster1.style.opacity = "1";
-    poster2.style.opacity = "0";
-  }
+  poster1.style.opacity = "1";
+  poster2.style.opacity = "0";
 }
 
 function showPoster2() {
-  if (poster1 && poster2) {
-    poster1.style.opacity = "0";
-    poster2.style.opacity = "1";
-  }
+  poster1.style.opacity = "0";
+  poster2.style.opacity = "1";
 }
 
 function switchPoster() {
-  if (currentPoster === 1) {
+  if (current === 1) {
     showPoster2();
-    currentPoster = 2;
+    current = 2;
   } else {
     showPoster1();
-    currentPoster = 1;
+    current = 1;
   }
 }
 
-function startPosterRotation() {
-  if (posterIntervalId === null) {
-    posterIntervalId = setInterval(switchPoster, 2500);
-  }
+function start() {
+  timer = setInterval(switchPoster, 1500);
 }
 
-function stopPosterRotation() {
-  if (posterIntervalId !== null) {
-    clearInterval(posterIntervalId);
-    posterIntervalId = null;
-  }
+function stop() {
+  clearInterval(timer);
+  timer = null;
 }
 
 if (poster1 && poster2 && posterContainer) {
-  startPosterRotation();
+  start();
 
-  posterContainer.addEventListener("mouseenter", function () {
-    stopPosterRotation();
-  });
-
-  posterContainer.addEventListener("mouseleave", function () {
-    startPosterRotation();
-  });
+  posterContainer.addEventListener("mouseenter", stop);
+  posterContainer.addEventListener("mouseleave", start);
 }
 
-// ======================
-// 2. Carrousel de l'équipe
-// ======================
+const cards = document.querySelectorAll(".member-card");
+const carousel = document.querySelector(".team-carousel");
 
-var teamCards = document.querySelectorAll(".member-card");
-var teamCarousel = document.querySelector(".team-carousel");
-var teamCurrentIndex = 0;
-var teamIntervalId = null;
+let index = 0;
+let teamTimer = null;
 
-function showTeamMember(index) {
-  if (teamCards.length === 0) {
-    return;
-  }
+function showCard(i) {
+  cards.forEach((c) => c.classList.remove("active"));
 
-  for (var i = 0; i < teamCards.length; i++) {
-    teamCards[i].classList.remove("active");
-  }
+  if (i >= cards.length) i = 0;
+  if (i < 0) i = cards.length - 1;
 
-  if (index < 0) {
-    index = teamCards.length - 1;
-  }
-  if (index >= teamCards.length) {
-    index = 0;
-  }
-
-  teamCards[index].classList.add("active");
-  teamCurrentIndex = index;
+  cards[i].classList.add("active");
+  index = i;
 }
 
-function nextTeamMember() {
-  showTeamMember(teamCurrentIndex + 1);
+function nextCard() {
+  showCard(index + 1);
 }
 
-function startTeamCarousel() {
-  if (teamIntervalId === null && teamCards.length > 0) {
-    teamIntervalId = setInterval(nextTeamMember, 2500);
-  }
+function startTeam() {
+  teamTimer = setInterval(nextCard, 2500);
 }
 
-function stopTeamCarousel() {
-  if (teamIntervalId !== null) {
-    clearInterval(teamIntervalId);
-    teamIntervalId = null;
-  }
+function stopTeam() {
+  clearInterval(teamTimer);
+  teamTimer = null;
 }
 
-if (teamCards.length > 0) {
-  showTeamMember(0);
-  startTeamCarousel();
+if (cards.length > 0) {
+  showCard(0);
+  startTeam();
 
-  if (teamCarousel) {
-    teamCarousel.addEventListener("mouseenter", function () {
-      stopTeamCarousel();
-    });
-
-    teamCarousel.addEventListener("mouseleave", function () {
-      startTeamCarousel();
-    });
-  }
+  carousel.addEventListener("mouseenter", stopTeam);
+  carousel.addEventListener("mouseleave", startTeam);
 }
